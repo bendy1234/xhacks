@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b5i2u4uanmf1e"]
+
+[ext_resource type="Texture2D" uid="uid://nn1v43yqe5ov" path="res://assets/temp building.png" id="1_ssece"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1q5t"]
+
+[node name="Building" type="Node2D" unique_id=195410950]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1709726025]
+texture = ExtResource("1_ssece")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=521537339]
+position = Vector2(1, 13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=570903144]
+shape = SubResource("RectangleShape2D_p1q5t")
