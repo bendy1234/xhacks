@@ -2,5 +2,17 @@
 
 [ext_resource type="Script" uid="uid://yj7uiaq1drco" path="res://code/player.gd" id="1_3vyb7"]
 
-[node name="Player" type="Node2D" unique_id=1955264524]
+[sub_resource type="CircleShape2D" id="CircleShape2D_3vyb7"]
+radius = 8.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_g2els"]
+size = Vector2(16, 16)
+
+[node name="Player" type="CharacterBody2D" unique_id=563819967]
 script = ExtResource("1_3vyb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1502496771]
+shape = SubResource("CircleShape2D_3vyb7")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=2085642775]
+mesh = SubResource("QuadMesh_g2els")
