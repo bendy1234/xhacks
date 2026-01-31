@@ -6,7 +6,6 @@ const MOVE_VEL = 10
 func _ready() -> void:
 	pass
 	
-
 func _physics_process(delta: float) -> void:
 	var horz_dir = Input.get_axis("left", "right")
 	var vert_dir = Input.get_axis("up", "down")
