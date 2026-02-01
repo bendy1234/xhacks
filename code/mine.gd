@@ -110,7 +110,7 @@ func break_tile(pos: Vector2i):
 	for s in ["gold_ore", "iron_ore", "coal_ore"]:
 		c += WorldManager.player.inv[s]
 
-	if c >= 9: # max ore count
+	if c >= 18: # max ore count
 		return
 	
 	if source_id == TileType.GOLD:

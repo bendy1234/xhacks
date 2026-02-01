@@ -13,10 +13,10 @@ var allow_movement = true
 var facing = Facing.RIGHT
 var target_tile: Vector2i
 var mining_time: float
-var coins: int = 0
+var coins: int = 10
 
 var pick_lvl: PickLvl = PickLvl.WOOD
-var O2_lvl:int = 0
+var O2_lvl: int = 0
 #endregion
 
 #@export var inv: Inv

@@ -1,6 +1,6 @@
 extends Node
 
-var rent_time = 1 * 60
+var rent_time = 5 * 60
 var time_till_rent = rent_time
 var rent_amount = 40
 
