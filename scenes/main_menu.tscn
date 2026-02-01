@@ -17,35 +17,99 @@ tile_set = ExtResource("2_ekxnf")
 layout_mode = 3
 anchors_preset = 0
 
+[node name="Title" type="Label" parent="Button_manager" unique_id=1324236624]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 144.0
+offset_right = 324.0
+offset_bottom = 200.0
+theme_override_fonts/font = ExtResource("3_wu84c")
+theme_override_font_sizes/font_size = 32
+text = "The Gold Rush"
+
 [node name="Start" type="Button" parent="Button_manager" unique_id=207919904]
 layout_mode = 0
-offset_left = 392.0
+offset_left = 400.0
 offset_top = 64.0
-offset_right = 568.0
-offset_bottom = 152.0
+offset_right = 560.0
+offset_bottom = 144.0
 theme_override_constants/h_separation = 0
 theme_override_fonts/font = ExtResource("3_wu84c")
 theme_override_font_sizes/font_size = 24
-text = "Start"
+text = "Play"
 icon = ExtResource("2_bqqt6")
 
 [node name="Quit" type="Button" parent="Button_manager" unique_id=643320201]
 layout_mode = 0
 offset_left = 432.0
-offset_top = 240.0
+offset_top = 235.0
 offset_right = 532.0
-offset_bottom = 276.0
+offset_bottom = 271.0
 theme_override_fonts/font = ExtResource("3_wu84c")
 text = "Quit"
 
 [node name="Credits" type="Button" parent="Button_manager" unique_id=1467603889]
 layout_mode = 0
 offset_left = 432.0
-offset_top = 184.0
+offset_top = 177.0
 offset_right = 532.0
-offset_bottom = 220.0
+offset_bottom = 213.0
 theme_override_fonts/font = ExtResource("3_wu84c")
 text = "Credits"
+
+[node name="intro_msg" type="Control" parent="." unique_id=171254079]
+visible = false
+custom_minimum_size = Vector2(540, 360)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="intro_msg" unique_id=1956252373]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.53333336)
+
+[node name="Label" type="Label" parent="intro_msg" unique_id=1550456431]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 96.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_wu84c")
+theme_override_font_sizes/font_size = 24
+text = "The Gold Rush Has Begun!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="into_msg" type="Label" parent="intro_msg" unique_id=1063468159]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_wu84c")
+text = "
+The sharp incline of people
+trying their hand in mining gold
+has pushed rent prices up!
+dont get kicked out!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=1936940746]
+wait_time = 3.0
+one_shot = true
 
 [connection signal="pressed" from="Button_manager/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Button_manager/Quit" to="." method="_on_quit_pressed"]
