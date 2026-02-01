@@ -32,11 +32,14 @@ func set_default():
 		for j in range(13):
 			tilemap.set_cell(Vector2i(i - 1, j - 1), 0, Vector2i(0, 0))
 
-func get_break_time(player: Player, pos: Vector2i):
-	# TODO: add picaxe level to player
-	if tilemap.get_cell_source_id(pos) != -1:
-		return 10
-	return -1 # nothing is there
+#func get_break_time(player: Player, pos: Vector2i):
+	## TODO: add picaxe level to player
+	#if tilemap.get_cell_source_id(pos) != -1:
+		#return 10
+	#return -1 # nothing is there
+
+func to_tile_cords(pos):
+	return tilemap.local_to_map(pos)
 
 func break_tile(pos: Vector2i):
 	tilemap.erase_cell(pos)

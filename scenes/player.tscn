@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://efnc25ihdivv"]
 
 [ext_resource type="Script" uid="uid://yj7uiaq1drco" path="res://code/player.gd" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://1wgqkoxuswil" path="res://assets/player_right.png" id="2_g2els"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3vyb7"]
 radius = 8.0
-
-[sub_resource type="QuadMesh" id="QuadMesh_g2els"]
-size = Vector2(16, 16)
 
 [node name="Player" type="CharacterBody2D" unique_id=563819967 groups=["player"]]
 script = ExtResource("1_3vyb7")
@@ -14,5 +12,6 @@ script = ExtResource("1_3vyb7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1502496771]
 shape = SubResource("CircleShape2D_3vyb7")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=2085642775]
-mesh = SubResource("QuadMesh_g2els")
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1824981938]
+position = Vector2(0, -22)
+texture = ExtResource("2_g2els")
