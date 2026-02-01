@@ -28,7 +28,7 @@ func update_ui():
 		$mine/Button.text = "Upgrade Pickaxe: %d$" % price
 			
 		if price > WorldManager.player.coins:
-			$trade/Button.disabled = true
+			$mine/Button.disabled = true
 	elif shop_type == ShopType.O2:
 		price = 40
 		if price > WorldManager.player.coins:
@@ -46,7 +46,6 @@ func buy_pick_upgrade():
 	WorldManager.player.pick_lvl += 1
 	
 	WorldManager.player.coins -= price
-	
 	update_ui()
 	
 func buy_o2_tank():
