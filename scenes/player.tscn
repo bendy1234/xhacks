@@ -8,7 +8,7 @@ radius = 8.0
 [sub_resource type="QuadMesh" id="QuadMesh_g2els"]
 size = Vector2(16, 16)
 
-[node name="Player" type="CharacterBody2D" unique_id=563819967]
+[node name="Player" type="CharacterBody2D" unique_id=563819967 groups=["player"]]
 script = ExtResource("1_3vyb7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1502496771]
