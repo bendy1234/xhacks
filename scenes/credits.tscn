@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://7nfl60xkpjg8"]
+
+[ext_resource type="FontFile" uid="uid://bcumtq526bxjw" path="res://assets/pixel_font.ttf" id="1_0bpdh"]
+[ext_resource type="Script" uid="uid://d3tba0frfgbv" path="res://code/credits.gd" id="1_2ckv8"]
+
+[node name="Credits" type="Control" unique_id=1322964673]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ckv8")
+
+[node name="Label" type="Label" parent="." unique_id=383153229]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 368.0
+offset_bottom = 470.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_0bpdh")
+text = "A Hackathon Project By
+
+1
+2
+3
+4
+
+Artwork
+1
+
+Programing
+2
+3
+4
+"
+horizontal_alignment = 1
+vertical_alignment = 1

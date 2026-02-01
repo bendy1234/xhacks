@@ -92,7 +92,7 @@ func find_tile(tile: int) -> Vector2i:
 
 func get_break_time(pos: Vector2i) -> float:
 	# yea, this is very prone to breaking & is very hard to adjust
-	var pick_power = 0.8 # player.pickaxe + 1
+	var pick_power =  float(WorldManager.player.pick_lvl)
 	var toughness = tilemap.get_cell_source_id(pos)
 	if toughness >= 6 or toughness < 0: # unbreakable stuff
 		return INF

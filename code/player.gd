@@ -14,7 +14,10 @@ var area_num = 0 # for mine depth & town number
 var facing = Facing.RIGHT
 var target_tile: Vector2i
 var mining_time: float
-var coins = 0
+var coins: int = 0
+
+var pick_lvl: PickLvl = PickLvl.WOOD
+var O2_lvl:int = 0
 #endregion
 
 @export var inv: Inv
@@ -87,6 +90,13 @@ enum Facing {
 	DOWN,
 	LEFT,
 	RIGHT,
+}
+
+enum PickLvl {
+	WOOD = 1,
+	STONE,
+	IRON,
+	DIAMOND,
 }
 
 func collect(item):

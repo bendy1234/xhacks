@@ -18,8 +18,8 @@ func on_enter():
 			if WorldManager.player.inv.items[i] == null:
 				continue
 			
-			c += ore_prices.get(WorldManager.player.inv.items[i], 0)
-			WorldManager.player.inv.items[i] = null	
+			c += ore_prices.get(WorldManager.player.inv.items[i].name, 0)
+			WorldManager.player.inv.items[i] = null
 		WorldManager.player.coins += c
 	elif building_type == BuildingType.TOWNHALL:
 		pass
@@ -35,6 +35,6 @@ enum BuildingType {
 
 var ore_prices = {
 	"coal_ore": 1,
-	"iron_ore": 3,
-	"gold_ore": 7
+	"iron_ore": 4,
+	"gold_ore": 9
 }
