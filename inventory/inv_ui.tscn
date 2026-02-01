@@ -1,10 +1,21 @@
 [gd_scene format=3 uid="uid://cdyabjlebh7op"]
 
 [ext_resource type="Script" uid="uid://qna5gpklx1p6" path="res://inventory/inv_ui.gd" id="1_f2u1w"]
+[ext_resource type="Script" uid="uid://dd4yp7mpd6st7" path="res://inventory/inv.gd" id="2_rjf2a"]
 [ext_resource type="Texture2D" uid="uid://b71tgbhoxda4o" path="res://assets/temp_inventory_tile_new.png" id="2_w82yi"]
 [ext_resource type="PackedScene" uid="uid://d1gp2xexbq2gh" path="res://inventory/inv_ui_slot.tscn" id="3_dn3an"]
+[ext_resource type="Texture2D" uid="uid://lmey1sap4b5i" path="res://assets/inventory.png" id="4_r1b7r"]
+[ext_resource type="Texture2D" uid="uid://c6fkgvdqn2us7" path="res://assets/gold_ore.png" id="5_ye6km"]
+[ext_resource type="Texture2D" uid="uid://dmnriugmavb5e" path="res://assets/iron_ore.png" id="6_rjf2a"]
+[ext_resource type="Texture2D" uid="uid://b8veed5l2r5se" path="res://assets/coal_ore.png" id="7_7can1"]
+[ext_resource type="FontFile" uid="uid://bcumtq526bxjw" path="res://assets/pixel_font.ttf" id="8_5r18x"]
 
-[node name="Inv_UI" type="Control" unique_id=45594383]
+[node name="Inventory" type="Sprite2D" unique_id=690052948]
+texture = ExtResource("4_r1b7r")
+script = ExtResource("2_rjf2a")
+
+[node name="Inv_UI" type="Control" parent="." unique_id=45594383]
+visible = false
 custom_minimum_size = Vector2(42, 42)
 layout_mode = 3
 anchors_preset = 0
@@ -12,7 +23,8 @@ offset_right = 42.0
 offset_bottom = 42.0
 script = ExtResource("1_f2u1w")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1837233817]
+[node name="NinePatchRect" type="NinePatchRect" parent="Inv_UI" unique_id=1837233817]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -23,7 +35,7 @@ patch_margin_top = 20
 patch_margin_right = 20
 patch_margin_bottom = 20
 
-[node name="GridContainer" type="GridContainer" parent="NinePatchRect" unique_id=2016632364]
+[node name="GridContainer" type="GridContainer" parent="Inv_UI/NinePatchRect" unique_id=2016632364]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -38,29 +50,71 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 3
 
-[node name="inv_UI_slot" parent="NinePatchRect/GridContainer" unique_id=1883324543 instance=ExtResource("3_dn3an")]
+[node name="inv_UI_slot" parent="Inv_UI/NinePatchRect/GridContainer" unique_id=1883324543 instance=ExtResource("3_dn3an")]
 layout_mode = 2
 
-[node name="inv_UI_slot2" parent="NinePatchRect/GridContainer" unique_id=1903886170 instance=ExtResource("3_dn3an")]
+[node name="inv_UI_slot2" parent="Inv_UI/NinePatchRect/GridContainer" unique_id=1903886170 instance=ExtResource("3_dn3an")]
 layout_mode = 2
 
-[node name="inv_UI_slot3" parent="NinePatchRect/GridContainer" unique_id=1991776752 instance=ExtResource("3_dn3an")]
+[node name="inv_UI_slot3" parent="Inv_UI/NinePatchRect/GridContainer" unique_id=1991776752 instance=ExtResource("3_dn3an")]
 layout_mode = 2
 
-[node name="inv_UI_slot4" parent="NinePatchRect/GridContainer" unique_id=1849626557 instance=ExtResource("3_dn3an")]
+[node name="inv_UI_slot4" parent="Inv_UI/NinePatchRect/GridContainer" unique_id=1849626557 instance=ExtResource("3_dn3an")]
 layout_mode = 2
 
-[node name="inv_UI_slot5" parent="NinePatchRect/GridContainer" unique_id=1363408714 instance=ExtResource("3_dn3an")]
+[node name="inv_UI_slot5" parent="Inv_UI/NinePatchRect/GridContainer" unique_id=1363408714 instance=ExtResource("3_dn3an")]
 layout_mode = 2
 
-[node name="inv_UI_slot6" parent="NinePatchRect/GridContainer" unique_id=127774295 instance=ExtResource("3_dn3an")]
+[node name="inv_UI_slot6" parent="Inv_UI/NinePatchRect/GridContainer" unique_id=127774295 instance=ExtResource("3_dn3an")]
 layout_mode = 2
 
-[node name="inv_UI_slot7" parent="NinePatchRect/GridContainer" unique_id=1957776543 instance=ExtResource("3_dn3an")]
+[node name="inv_UI_slot7" parent="Inv_UI/NinePatchRect/GridContainer" unique_id=1957776543 instance=ExtResource("3_dn3an")]
 layout_mode = 2
 
-[node name="inv_UI_slot8" parent="NinePatchRect/GridContainer" unique_id=516046099 instance=ExtResource("3_dn3an")]
+[node name="inv_UI_slot8" parent="Inv_UI/NinePatchRect/GridContainer" unique_id=516046099 instance=ExtResource("3_dn3an")]
 layout_mode = 2
 
-[node name="inv_UI_slot9" parent="NinePatchRect/GridContainer" unique_id=337943602 instance=ExtResource("3_dn3an")]
+[node name="inv_UI_slot9" parent="Inv_UI/NinePatchRect/GridContainer" unique_id=337943602 instance=ExtResource("3_dn3an")]
 layout_mode = 2
+
+[node name="GoldOre" type="Sprite2D" parent="." unique_id=900640309]
+position = Vector2(-36, -32)
+texture = ExtResource("5_ye6km")
+
+[node name="IronOre" type="Sprite2D" parent="." unique_id=838620141]
+position = Vector2(0, -32)
+texture = ExtResource("6_rjf2a")
+
+[node name="CoalOre" type="Sprite2D" parent="." unique_id=1192469748]
+position = Vector2(37, -32)
+texture = ExtResource("7_7can1")
+
+[node name="gold" type="Label" parent="." unique_id=488879562]
+offset_left = -51.0
+offset_top = -21.0
+offset_right = -21.0
+offset_bottom = 7.0
+theme_override_fonts/font = ExtResource("8_5r18x")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 1
+
+[node name="iron" type="Label" parent="." unique_id=30377652]
+offset_left = -15.0
+offset_top = -21.0
+offset_right = 15.0
+offset_bottom = 7.0
+theme_override_fonts/font = ExtResource("8_5r18x")
+theme_override_font_sizes/font_size = 16
+text = "1"
+horizontal_alignment = 1
+
+[node name="coal" type="Label" parent="." unique_id=22751423]
+offset_left = 22.0
+offset_top = -21.0
+offset_right = 52.0
+offset_bottom = 7.0
+theme_override_fonts/font = ExtResource("8_5r18x")
+theme_override_font_sizes/font_size = 16
+text = "1"
+horizontal_alignment = 1

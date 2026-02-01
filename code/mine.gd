@@ -25,6 +25,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif pos.x >= 24 and pos.y <= 2:
 			if player.area_num == 1:
 				WorldManager.enter_town()
+				WorldManager.player.position = Vector2i(614, 300)
 			else:
 				WorldManager.enter_mine(player.area_num - 1, 1)
 
@@ -69,12 +70,7 @@ func set_default():
 		#break
 	
 
-#func get_break_time(player: Player, pos: Vector2i):
-	## TODO: add picaxe level to player
-	#if tilemap.get_cell_source_id(pos) != -1:
-		#return 10
-	#return -1 # nothing is there
-
+# this just returns the entrance/exit of the cave
 func find_tile(tile: int) -> Vector2i:
 	if tile == 1:
 		return Vector2i(1, 2)
@@ -106,17 +102,24 @@ func get_break_time(pos: Vector2i) -> float:
 
 func break_tile(pos: Vector2i):
 	var source_id = tilemap.get_cell_source_id(pos)
-	if source_id == TileType.GOLD:
-		var gold_item = preload("res://inventory/items/gold_ore.tres")
-		WorldManager.player.collect(gold_item)
-	elif source_id == TileType.IRON:
-		var iron_item = preload("res://inventory/items/iron_ore.tres")
-		WorldManager.player.collect(iron_item)
-	elif source_id == TileType.COAL:
-		var coal_item = preload("res://inventory/items/coal_ore.tres")
-		WorldManager.player.collect(coal_item)
 	tilemap.erase_cell(pos)
+	if source_id == TileType.STONE:
+		return
 	
+	var c = 0
+	for s in ["gold_ore", "iron_ore", "coal_ore"]:
+		c += WorldManager.player.inv[s]
+
+	if c >= 9: # max ore count
+		return
+	
+	if source_id == TileType.GOLD:
+		WorldManager.player.inv["gold_ore"] += 1
+	elif source_id == TileType.IRON:
+		WorldManager.player.inv["iron_ore"] += 1
+	elif source_id == TileType.COAL:
+		WorldManager.player.inv["coal_ore"] += 1
+
 
 #region not really needed funcs
 func to_tile_cords(pos):

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dx7luqhrbr7em"]
+
+[node name="Gameover" type="Control" unique_id=1838928040]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=317301500]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.53333336)
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=1722623603]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Over
+
+You could not play rent
+and got kicked out of town"
+horizontal_alignment = 1
+vertical_alignment = 1

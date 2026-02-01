@@ -4,3 +4,4 @@ extends Node2D
 func _ready() -> void:
 	WorldManager.player = $Player
 	WorldManager.enter_town()
+	WorldManager.player.position = Vector2i(24, 300)

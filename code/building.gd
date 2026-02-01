@@ -1,40 +1,37 @@
 extends Node2D
 
+const shop_overlay = preload("res://scenes/shop.tscn")
+var inst: Node2D
+
 @export
-var building_type: BuildingType = BuildingType.SHOP
+var building_type: BuildingType = BuildingType.Trade
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("enter_door"):
+	if event.is_action_pressed("enter_door") and inst == null:
 		for thing in $door.get_overlapping_bodies():
 			if thing is Player:
 				on_enter()
+	elif event.is_action_pressed("esc"):
+		if inst != null:
+			WorldManager.player.allow_movement = true
+			remove_child.call_deferred(inst)
+			inst = null
 
 func on_enter():
 	if building_type == BuildingType.MINE_ENTRANCE:
 		WorldManager.enter_mine(1)
-	elif building_type == BuildingType.SHOP:
-		var c = 0
-		for i in range(WorldManager.player.inv.items.size()):
-			if WorldManager.player.inv.items[i] == null:
-				continue
-			
-			c += ore_prices.get(WorldManager.player.inv.items[i].name, 0)
-			WorldManager.player.inv.items[i] = null
-		WorldManager.player.coins += c
-	elif building_type == BuildingType.TOWNHALL:
-		pass
-	elif building_type == BuildingType.INN:
-		pass
+	else:
+		inst = shop_overlay.instantiate()
+		inst.shop_type = building_type
+		add_child(inst)
+		inst.global_position = Vector2i(540, 360) / 2
+		WorldManager.player.allow_movement = false
+
 
 enum BuildingType {
-	TOWNHALL,
-	SHOP,
-	INN,
-	MINE_ENTRANCE,
-}
-
-var ore_prices = {
-	"coal_ore": 1,
-	"iron_ore": 4,
-	"gold_ore": 9
+	Trade,
+	Mine,
+	O2,
+	Water,
+	MINE_ENTRANCE
 }

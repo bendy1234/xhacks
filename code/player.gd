@@ -8,6 +8,7 @@ var area_num = 0 # for mine depth & town number
 
 #region vars
 var move_vel = 2 * 60
+var allow_movement = true
 
 var facing = Facing.RIGHT
 var target_tile: Vector2i
@@ -18,17 +19,26 @@ var pick_lvl: PickLvl = PickLvl.WOOD
 var O2_lvl:int = 0
 #endregion
 
-@export var inv: Inv
+#@export var inv: Inv
+var inv := {
+	"gold_ore": 0,
+	"iron_ore": 0,
+	"coal_ore": 0,
+}
+
 func _ready() -> void:
 	pass
 	
 func _physics_process(delta: float) -> void:
 	var horz_dir = Input.get_axis("left", "right")
 	var vert_dir = Input.get_axis("up", "down")
+	if not allow_movement:
+		horz_dir = 0
+		vert_dir = 0
+
 	velocity.x = horz_dir * move_vel
 	velocity.y = vert_dir * move_vel
 	
-	# TODO: change sprite
 	if horz_dir > 0:
 		facing = Facing.RIGHT
 		$Sprite2D.texture = preload("res://assets/player_right.png")
@@ -97,5 +107,5 @@ enum PickLvl {
 	DIAMOND,
 }
 
-func collect(item):
-	inv.insert(item)
+#func collect(item):
+	#inv.insert(item)
