@@ -10,4 +10,6 @@ func _physics_process(delta: float) -> void:
 		rent_time *= 1.2
 		rent_amount *= 1.5
 		time_till_rent = rent_time
-		# TODO: subtract rent from player
+		WorldManager.player.coins -= rent_amount
+		if WorldManager.player.coins < 0:
+			print("gameover")
