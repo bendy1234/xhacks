@@ -28,16 +28,17 @@ func enter_mine(id: int, dir: int = 2): # 1 for up, 2 for down
 		remove_child(current_lvl)
 
 	player.area = Area.MINE
-	player.area_num = id
 	current_lvl = mine.instantiate();
 	add_child(current_lvl)
+	player.area_num = id
 
 	if mine_data.has(id):
 		current_lvl.set_data(mine_data[id])
 	else:
 		current_lvl.set_default()
 	var start_pos = current_lvl.find_tile(dir)
-	player.position = current_lvl.to_map_cords(start_pos)
+	player.position = current_lvl.to_map_cords(start_pos) + Vector2(6, 24)
+	
 
 func enter_town():
 	if player.area == Area.MINE:

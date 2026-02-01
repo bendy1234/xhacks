@@ -6,14 +6,13 @@ var id: int = 0
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("enter_door"):
-		# check if at entrance/exit
 		var player = WorldManager.player
 		var pos = to_tile_cords(player.position)
-		var c = tilemap.get_cell_source_id(pos)
-		if c == 1:
+		# this code gets more and more jank as time goes on
+		if pos.x <= 2 and pos.y <= 2:
 			WorldManager.enter_mine(player.area_num + 1)
-		elif c == 2:
-			if player.area_num <= 1:
+		elif pos.x >= 24 and pos.y <= 2:
+			if player.area_num == 1:
 				WorldManager.enter_town()
 			else:
 				WorldManager.enter_mine(player.area_num - 1, 1)
@@ -27,8 +26,8 @@ func set_data(tile_map_data: PackedByteArray):
 func set_default():
 	# 1,3 -> 25, 13
 	# 24, 10
-	for i in range(1, 25):
-		for j in range(3, 13):
+	for i in range(1, 26):
+		for j in range(3, 14):
 			var num = randf()
 			if num <= 0.05:
 				tilemap.set_cell(Vector2i(i, j), 5, Vector2i(0, 0))
@@ -39,19 +38,24 @@ func set_default():
 			else:
 				tilemap.set_cell(Vector2i(i, j), 0, Vector2i(0, 0))
 	
-	var x = randi() % 20
-	var y = randi() % 11
+	tilemap.set_cell(Vector2i(1, 3))
+	tilemap.set_cell(Vector2i(2, 3))
+	tilemap.set_cell(Vector2i(24, 3))
+	tilemap.set_cell(Vector2i(25, 3))
 	
-	tilemap.set_cell(Vector2i(x, y), 1, Vector2i(0, 0))
-	
-	while true:
-		var x_ = randi() % 20
-		var y_ = randi() % 11
-		if (x == x_ and y == y_):
-			continue
-		
-		tilemap.set_cell(Vector2i(x_, y_), 2, Vector2i(0, 0))
-		break
+	#var x = randi() % 20
+	#var y = randi() % 11
+	#
+	#tilemap.set_cell(Vector2i(x, y), 1, Vector2i(0, 0))
+	#
+	#while true:
+		#var x_ = randi() % 20
+		#var y_ = randi() % 11
+		#if (x == x_ and y == y_):
+			#continue
+		#
+		#tilemap.set_cell(Vector2i(x_, y_), 2, Vector2i(0, 0))
+		#break
 	
 
 #func get_break_time(player: Player, pos: Vector2i):

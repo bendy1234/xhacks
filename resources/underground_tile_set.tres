@@ -55,16 +55,23 @@ texture_region_size = Vector2i(24, 24)
 texture = ExtResource("7_ohqoa")
 texture_region_size = Vector2i(24, 24)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(12, -12, 12, 12, -12, 12, -12, -12)
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(12, -12, 12, 12, -12, 12, -12, -12)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(12, 0, -6, 0, -6, 12, -12, 12, -12, -12, 12, -12)
 1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(12, -12, 12, 12, 6, 12, 6, 0, -12, 0, -12, -12)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cifpb"]
 texture = ExtResource("8_jqk8c")
 texture_region_size = Vector2i(24, 24)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(12, -12, 12, 12, -12, 12, -12, -12)
 
 [resource]
 tile_size = Vector2i(24, 24)
