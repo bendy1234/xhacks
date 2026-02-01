@@ -8,20 +8,20 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("enter_door"):
 		# check if at entrance/exit
 		var player = WorldManager.player
-		var pos = to_tile_cords(Vector2i(0,0))
+		var pos = to_tile_cords(player.position)
 		var c = tilemap.get_cell_source_id(pos)
 		if c == 1:
-			WorldManager.enter_mine(player.area_num +1)
+			WorldManager.enter_mine(player.area_num + 1)
 		elif c == 2:
-			if player.area_num == 1:
+			if player.area_num <= 1:
 				WorldManager.enter_town()
-			WorldManager.enter_mine(player.area_num -1)
-		
+			else:
+				WorldManager.enter_mine(player.area_num - 1, 1)
 
 func get_data() -> PackedByteArray:
 	return tilemap.tile_map_data
-	
-func set_data(tile_map_data: PackedByteArray): # TODO: default data
+
+func set_data(tile_map_data: PackedByteArray):
 	tilemap.tile_map_data = tile_map_data
 
 func set_default():
@@ -37,6 +37,21 @@ func set_default():
 				tilemap.set_cell(Vector2i(i - 1, j - 1), 3, Vector2i(0, 0))
 			else:
 				tilemap.set_cell(Vector2i(i - 1, j - 1), 0, Vector2i(0, 0))
+	
+	var x = randi() % 20
+	var y = randi() % 11
+	
+	tilemap.set_cell(Vector2i(x, y), 1, Vector2i(0, 0))
+	
+	while true:
+		var x_ = randi() % 20
+		var y_ = randi() % 11
+		if (x == x_ and y == y_):
+			continue
+		
+		tilemap.set_cell(Vector2i(x_, y_), 2, Vector2i(0, 0))
+		break
+	
 
 #func get_break_time(player: Player, pos: Vector2i):
 	## TODO: add picaxe level to player
@@ -44,8 +59,26 @@ func set_default():
 		#return 10
 	#return -1 # nothing is there
 
+func find_tile(tile: int) -> Vector2i:
+	# 1 is down 2 is up
+	for i in range(22):
+		for j in range(13):
+			var c = tilemap.get_cell_source_id(Vector2i(i-1, j-1))
+			if c == tile:
+				return Vector2i(i-1, j-1)
+
+	# should not happen but can
+	print("Did not find tile with id ", tile)
+	return Vector2i(-100, -100)
+
+
+#region not really needed funcs
 func to_tile_cords(pos):
 	return tilemap.local_to_map(pos)
 
+func to_map_cords(pos):
+	return tilemap.map_to_local(pos)
+
 func break_tile(pos: Vector2i):
 	tilemap.erase_cell(pos)
+#endregion

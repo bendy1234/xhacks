@@ -22,5 +22,6 @@ offset_top = -185.0
 offset_right = -44.000008
 offset_bottom = -143.0
 scale = Vector2(4.2400875, 2.9556758)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1502496771]
 shape = SubResource("CircleShape2D_3vyb7")
