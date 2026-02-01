@@ -25,18 +25,19 @@ func set_data(tile_map_data: PackedByteArray):
 	tilemap.tile_map_data = tile_map_data
 
 func set_default():
-	#for i in range() # 22x13, start at -1, -1
-	for i in range(22):
-		for j in range(13):
+	# 1,3 -> 25, 13
+	# 24, 10
+	for i in range(1, 25):
+		for j in range(3, 13):
 			var num = randf()
 			if num <= 0.05:
-				tilemap.set_cell(Vector2i(i - 1, j - 1), 5, Vector2i(0, 0))
+				tilemap.set_cell(Vector2i(i, j), 5, Vector2i(0, 0))
 			elif num <= 0.14:
-				tilemap.set_cell(Vector2i(i - 1, j - 1), 4, Vector2i(0, 0))
+				tilemap.set_cell(Vector2i(i, j), 4, Vector2i(0, 0))
 			elif num < 0.25:
-				tilemap.set_cell(Vector2i(i - 1, j - 1), 3, Vector2i(0, 0))
+				tilemap.set_cell(Vector2i(i, j), 3, Vector2i(0, 0))
 			else:
-				tilemap.set_cell(Vector2i(i - 1, j - 1), 0, Vector2i(0, 0))
+				tilemap.set_cell(Vector2i(i, j), 0, Vector2i(0, 0))
 	
 	var x = randi() % 20
 	var y = randi() % 11
@@ -60,16 +61,19 @@ func set_default():
 	#return -1 # nothing is there
 
 func find_tile(tile: int) -> Vector2i:
-	# 1 is down 2 is up
-	for i in range(22):
-		for j in range(13):
-			var c = tilemap.get_cell_source_id(Vector2i(i-1, j-1))
-			if c == tile:
-				return Vector2i(i-1, j-1)
-
-	# should not happen but can
-	print("Did not find tile with id ", tile)
-	return Vector2i(-100, -100)
+	if tile == 1:
+		return Vector2i(1, 2)
+	return Vector2i(24, 2)
+	## 1 is down 2 is up
+	#for i in range(22):
+		#for j in range(13):
+			#var c = tilemap.get_cell_source_id(Vector2i(i-1, j-1))
+			#if c == tile:
+				#return Vector2i(i-1, j-1)
+#
+	## should not happen but can
+	#print("Did not find tile with id ", tile)
+	#return Vector2i(-100, -100)
 
 
 #region not really needed funcs

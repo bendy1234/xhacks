@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://drtp7asjv4px1" path="res://assets/coal_stone.png" id="4_t3qxl"]
 [ext_resource type="Texture2D" uid="uid://dfrffm2pf8wwa" path="res://assets/iron_stone.png" id="5_ohqoa"]
 [ext_resource type="Texture2D" uid="uid://bnkthn73msacy" path="res://assets/gold_stone.png" id="6_jqk8c"]
+[ext_resource type="Texture2D" uid="uid://6fdlqd6oqfa7" path="res://assets/gate.png" id="7_ohqoa"]
+[ext_resource type="Texture2D" uid="uid://kwatybchu3mw" path="res://assets/BG.png" id="8_jqk8c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_coti5"]
 texture = ExtResource("1_nw6k3")
@@ -49,6 +51,21 @@ texture_region_size = Vector2i(24, 24)
 0:0/0/terrain = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jqk8c"]
+texture = ExtResource("7_ohqoa")
+texture_region_size = Vector2i(24, 24)
+0:0/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+1:0/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cifpb"]
+texture = ExtResource("8_jqk8c")
+texture_region_size = Vector2i(24, 24)
+0:0/0 = 0
+
 [resource]
 tile_size = Vector2i(24, 24)
 physics_layer_0/collision_layer = 1
@@ -61,3 +78,5 @@ sources/2 = SubResource("TileSetAtlasSource_1nus7")
 sources/3 = SubResource("TileSetAtlasSource_pv5v3")
 sources/4 = SubResource("TileSetAtlasSource_0tk2h")
 sources/5 = SubResource("TileSetAtlasSource_dxqvm")
+sources/6 = SubResource("TileSetAtlasSource_jqk8c")
+sources/7 = SubResource("TileSetAtlasSource_cifpb")
