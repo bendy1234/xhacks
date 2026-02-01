@@ -15,4 +15,14 @@ scale = Vector2(0.032, 0.031)
 texture = ExtResource("1_dfngl")
 centered = false
 
-[node name="item_display" type="Sprite2D" parent="." unique_id=1731368755]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=577404294]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 0
+offset_right = 10.0
+offset_bottom = 10.0
+
+[node name="item_display" type="TextureRect" parent="CenterContainer" unique_id=1731368755]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5

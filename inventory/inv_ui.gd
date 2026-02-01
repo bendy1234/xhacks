@@ -15,7 +15,7 @@ func _input(event):
 			open()
 			
 func _ready():
-	# update_slots()
+	update_slots()
 	close()
 	
 func open():
