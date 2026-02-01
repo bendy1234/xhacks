@@ -1,28 +1,24 @@
 [gd_scene format=3 uid="uid://dgwisgjri53tj"]
 
+[ext_resource type="Script" uid="uid://bsy3ymmmldhyy" path="res://code/hud.gd" id="1_ahhtf"]
+[ext_resource type="FontFile" uid="uid://bcumtq526bxjw" path="res://assets/pixel_font.ttf" id="2_oo0fn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_047uy"]
+font = ExtResource("2_oo0fn")
+
 [node name="Control" type="Control" unique_id=1018307670]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+size_flags_vertical = 0
+script = ExtResource("1_ahhtf")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1986570349]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="time" type="Label" parent="HBoxContainer" unique_id=564594659]
-layout_mode = 2
-text = "Coint count
-Time/day
-Inv capacity / Weight"
-
-[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/time" unique_id=227035524]
-
-[node name="Label2" type="Label" parent="HBoxContainer" unique_id=216351433]
-layout_mode = 2
-
-[node name="coint count" type="Label" parent="HBoxContainer" unique_id=1399455636]
-layout_mode = 2
+[node name="time" type="Label" parent="." unique_id=564594659]
+layout_mode = 1
+offset_left = 288.0
+offset_top = 21.0
+offset_right = 324.0
+offset_bottom = 49.0
+text = "time"
+label_settings = SubResource("LabelSettings_047uy")
+horizontal_alignment = 1
+vertical_alignment = 1
