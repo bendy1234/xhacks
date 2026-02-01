@@ -28,7 +28,15 @@ func set_default():
 	#for i in range() # 22x13, start at -1, -1
 	for i in range(22):
 		for j in range(13):
-			tilemap.set_cell(Vector2i(i - 1, j - 1), 0, Vector2i(0, 0))
+			var num = randf()
+			if num <= 0.05:
+				tilemap.set_cell(Vector2i(i - 1, j - 1), 5, Vector2i(0, 0))
+			elif num <= 0.14:
+				tilemap.set_cell(Vector2i(i - 1, j - 1), 4, Vector2i(0, 0))
+			elif num < 0.25:
+				tilemap.set_cell(Vector2i(i - 1, j - 1), 3, Vector2i(0, 0))
+			else:
+				tilemap.set_cell(Vector2i(i - 1, j - 1), 0, Vector2i(0, 0))
 
 #func get_break_time(player: Player, pos: Vector2i):
 	## TODO: add picaxe level to player
