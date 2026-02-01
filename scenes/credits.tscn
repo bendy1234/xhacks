@@ -24,18 +24,16 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_0bpdh")
 text = "A Hackathon Project By
 
-1
-2
-3
-4
+Aakirat Athwal
+Benny Deng
+Jinxuan Dai
+Tommy Duong
 
 Artwork
-1
+Jinxuan Dai
 
 Programing
-2
-3
-4
-"
+Benny Deng
+Tommy Duong"
 horizontal_alignment = 1
 vertical_alignment = 1
