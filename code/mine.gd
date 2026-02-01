@@ -11,6 +11,8 @@ enum TileType {
 
 @onready
 var tilemap: TileMapLayer = $TileMapLayer
+@onready
+var block_breaking: Sprite2D = $block_breaking
 var id: int = 0
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -92,7 +94,7 @@ func get_break_time(pos: Vector2i) -> float:
 	# yea, this is very prone to breaking & is very hard to adjust
 	var pick_power = 0.8 # player.pickaxe + 1
 	var toughness = tilemap.get_cell_source_id(pos)
-	if toughness >= 6: # unbreakable stuff
+	if toughness >= 6 or toughness < 0: # unbreakable stuff
 		return INF
 	elif toughness == 0: # stone
 		toughness = 1
@@ -101,14 +103,6 @@ func get_break_time(pos: Vector2i) -> float:
 	
 	return toughness / pick_power
 
-
-
-#region not really needed funcs
-func to_tile_cords(pos):
-	return tilemap.local_to_map(pos)
-
-func to_map_cords(pos):
-	return tilemap.map_to_local(pos)
 
 func break_tile(pos: Vector2i):
 	var source_id = tilemap.get_cell_source_id(pos)
@@ -122,4 +116,12 @@ func break_tile(pos: Vector2i):
 		var coal_item = preload("res://inventory/items/coal_ore.tres")
 		WorldManager.player.collect(coal_item)
 	tilemap.erase_cell(pos)
+	
+
+#region not really needed funcs
+func to_tile_cords(pos):
+	return tilemap.local_to_map(pos)
+
+func to_map_cords(pos):
+	return tilemap.map_to_local(pos)
 #endregion

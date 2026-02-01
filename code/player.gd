@@ -60,6 +60,7 @@ func _physics_process(delta: float) -> void:
 func progres_mining(tile: Vector2i, delta: float):
 	var t = WorldManager.current_lvl.get_break_time(tile)
 	if t == INF:
+		WorldManager.current_lvl.block_breaking.visible = false
 		return
 	
 	if target_tile != tile:
@@ -69,10 +70,16 @@ func progres_mining(tile: Vector2i, delta: float):
 	
 	var progress = mining_time / t
 	
-	# TODO: use block breaking sprite
+	var frame = int(progress * 4)
+	if frame < 4:
+		WorldManager.current_lvl.block_breaking.visible = true
+		WorldManager.current_lvl.block_breaking.position = WorldManager.current_lvl.to_map_cords(tile)
+		WorldManager.current_lvl.block_breaking.frame = frame
+	else:
+		WorldManager.current_lvl.block_breaking.visible = false
+	
 	if progress >= 1:
 		WorldManager.current_lvl.break_tile(tile)
-		
 	
 
 enum Facing {

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bsy3ymmmldhyy" path="res://code/hud.gd" id="1_ahhtf"]
 [ext_resource type="FontFile" uid="uid://bcumtq526bxjw" path="res://assets/pixel_font.ttf" id="2_oo0fn"]
+[ext_resource type="PackedScene" uid="uid://cdyabjlebh7op" path="res://inventory/inv_ui.tscn" id="3_5ysmq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_047uy"]
 font = ExtResource("2_oo0fn")
@@ -22,3 +23,11 @@ text = "time"
 label_settings = SubResource("LabelSettings_047uy")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Inv_UI" parent="." unique_id=45594383 instance=ExtResource("3_5ysmq")]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 117.00003
+offset_right = 257.0
+offset_bottom = 159.00003
+scale = Vector2(4.2400875, 2.9556758)

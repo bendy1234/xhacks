@@ -4,9 +4,11 @@ extends Control
 @onready var slots: Array = $NinePatchRect/GridContainer.get_children()
 
 var is_open = false
+
 func update_slots():
 	for i in range(min(inv.items.size(), slots.size())):
 		slots[i].update(inv.items[i])
+
 func _input(event):
 	if event.is_action_pressed("open_inventory"):
 		if is_open:
