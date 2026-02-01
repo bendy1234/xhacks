@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c658muhii75lu"]
+
+[ext_resource type="Texture2D" uid="uid://bxasp470d7seb" path="res://assets/stone.png" id="1_84iim"]
+[ext_resource type="Script" uid="uid://dhwl17amdpig1" path="res://code/ore.gd" id="1_f6cf6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6cf6"]
+size = Vector2(20, 18.198236)
+
+[node name="Ore" type="Node" unique_id=700899399]
+script = ExtResource("1_f6cf6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1835945064]
+texture = ExtResource("1_84iim")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1502194177]
+scale = Vector2(2.103046, -0.879206)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1249912370]
+position = Vector2(0, -5.084529e-07)
+scale = Vector2(0.39135945, 1)
+shape = SubResource("RectangleShape2D_f6cf6")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
