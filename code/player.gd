@@ -14,7 +14,7 @@ var area_num = 0 # for mine depth & town number
 var facing = Facing.RIGHT
 var target_tile: Vector2i
 var mining_time: float
-
+var coins = 0
 #endregion
 
 @export var inv: Inv

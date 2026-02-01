@@ -13,7 +13,14 @@ func on_enter():
 	if building_type == BuildingType.MINE_ENTRANCE:
 		WorldManager.enter_mine(1)
 	elif building_type == BuildingType.SHOP:
-		pass
+		var c = 0
+		for i in range(WorldManager.player.inv.items.size()):
+			if WorldManager.player.inv.items[i] == null:
+				continue
+			
+			c += ore_prices.get(WorldManager.player.inv.items[i], 0)
+			WorldManager.player.inv.items[i] = null	
+		WorldManager.player.coins += c
 	elif building_type == BuildingType.TOWNHALL:
 		pass
 	elif building_type == BuildingType.INN:
@@ -24,4 +31,10 @@ enum BuildingType {
 	SHOP,
 	INN,
 	MINE_ENTRANCE,
+}
+
+var ore_prices = {
+	"coal_ore": 1,
+	"iron_ore": 3,
+	"gold_ore": 7
 }
