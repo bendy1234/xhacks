@@ -12,6 +12,9 @@ var area_num = 0 # for mine depth & town number
 
 #region vars
 var facing = Facing.RIGHT
+var target_tile: Vector2i
+var mining_time: float
+
 #endregion
 
 @export var inv: Inv
@@ -50,10 +53,27 @@ func _physics_process(delta: float) -> void:
 				tile_pos += Vector2i(0, -1)
 			if facing == Facing.DOWN:
 				tile_pos += Vector2i(0, 1)
-			# TODO: make this call the mining minigame
-			WorldManager.current_lvl.break_tile(tile_pos)
+			progres_mining(tile_pos, delta)
 			
 	move_and_slide()
+
+func progres_mining(tile: Vector2i, delta: float):
+	var t = WorldManager.current_lvl.get_break_time(tile)
+	if t == INF:
+		return
+	
+	if target_tile != tile:
+		target_tile = tile
+		mining_time = 0
+	mining_time += delta
+	
+	var progress = mining_time / t
+	
+	# TODO: use block breaking sprite
+	if progress >= 1:
+		WorldManager.current_lvl.break_tile(tile)
+		
+	
 
 enum Facing {
 	UP,
