@@ -8,7 +8,6 @@ const MOVE_VEL = 1.5 * 60
 #region position stuff
 var area = WorldManager.Area.TOWN
 var area_num = 0 # for mine depth & town number
-var mine_states = [] # array to store tilemap data
 #endregion
 
 func _ready() -> void:
