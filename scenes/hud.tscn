@@ -10,6 +10,12 @@ font = ExtResource("2_oo0fn")
 [node name="Control" type="Node" unique_id=77914841]
 script = ExtResource("1_ahhtf")
 
+[node name="inv" type="Label" parent="." unique_id=1122806203]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_oo0fn")
+text = "inv: 0/9"
+
 [node name="time" type="Label" parent="." unique_id=564594659]
 anchors_preset = 5
 anchor_left = 0.5
@@ -18,7 +24,7 @@ offset_left = -18.0
 offset_right = 18.0
 offset_bottom = 28.0
 grow_horizontal = 2
-text = "time"
+text = "00:00"
 label_settings = SubResource("LabelSettings_047uy")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -31,7 +37,7 @@ offset_left = -1.0
 offset_bottom = 23.0
 grow_horizontal = 0
 theme_override_fonts/font = ExtResource("2_oo0fn")
-text = "coins"
+text = "Coins: 0  Due: 40"
 
 [node name="Inv_UI" parent="." unique_id=45594383 instance=ExtResource("3_5ysmq")]
 anchors_preset = 8

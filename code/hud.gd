@@ -8,5 +8,6 @@ func format_time(seconds: float) -> String:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	$inv.text = "inv: %d/9" % (9 - WorldManager.player.inv.items.count(null))
 	$time.text = format_time(GameStuff.time_till_rent)
-	$coins.text = "Coins: %d" % WorldManager.player.coins
+	$coins.text = "Coins: %d  Due: %d" % [WorldManager.player.coins, GameStuff.rent_amount]

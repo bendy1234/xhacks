@@ -2,7 +2,7 @@ extends Node
 
 var rent_time = 5 * 60
 var time_till_rent = rent_time
-var rent_amount = 10
+var rent_amount = 40
 
 func _physics_process(delta: float) -> void:
 	time_till_rent -= delta

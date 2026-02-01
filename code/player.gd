@@ -1,16 +1,14 @@
 class_name Player
 extends CharacterBody2D
 
-#region consts
-const MOVE_VEL = 1.5 * 60
-#endregion
-
 #region position stuff
 var area = WorldManager.Area.TOWN
 var area_num = 0 # for mine depth & town number
 #endregion
 
 #region vars
+var move_vel = 2 * 60
+
 var facing = Facing.RIGHT
 var target_tile: Vector2i
 var mining_time: float
@@ -27,8 +25,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var horz_dir = Input.get_axis("left", "right")
 	var vert_dir = Input.get_axis("up", "down")
-	velocity.x = horz_dir * MOVE_VEL
-	velocity.y = vert_dir * MOVE_VEL
+	velocity.x = horz_dir * move_vel
+	velocity.y = vert_dir * move_vel
 	
 	# TODO: change sprite
 	if horz_dir > 0:
