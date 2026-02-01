@@ -61,3 +61,6 @@ enum Facing {
 	LEFT,
 	RIGHT,
 }
+
+func collect(item):
+	inv.insert(item)

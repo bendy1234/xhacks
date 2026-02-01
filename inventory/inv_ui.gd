@@ -19,6 +19,7 @@ func _ready():
 	close()
 	
 func open():
+	update_slots()
 	visible = true
 	is_open = true
 func close():

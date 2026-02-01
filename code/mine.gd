@@ -1,5 +1,14 @@
 extends Node2D
 
+enum TileType {
+	STONE = 0,
+	COAL = 3,
+	IRON = 4,
+	GOLD = 5,
+	GATE = 6,
+	BG = 7
+}
+
 @onready
 var tilemap: TileMapLayer = $TileMapLayer
 var id: int = 0
@@ -30,13 +39,13 @@ func set_default():
 		for j in range(3, 14):
 			var num = randf()
 			if num <= 0.05:
-				tilemap.set_cell(Vector2i(i, j), 5, Vector2i(0, 0))
+				tilemap.set_cell(Vector2i(i, j), TileType.GOLD, Vector2i(0, 0))
 			elif num <= 0.14:
-				tilemap.set_cell(Vector2i(i, j), 4, Vector2i(0, 0))
+				tilemap.set_cell(Vector2i(i, j), TileType.IRON, Vector2i(0, 0))
 			elif num < 0.25:
-				tilemap.set_cell(Vector2i(i, j), 3, Vector2i(0, 0))
+				tilemap.set_cell(Vector2i(i, j), TileType.COAL, Vector2i(0, 0))
 			else:
-				tilemap.set_cell(Vector2i(i, j), 0, Vector2i(0, 0))
+				tilemap.set_cell(Vector2i(i, j), TileType.STONE, Vector2i(0, 0))
 	
 	tilemap.set_cell(Vector2i(1, 3))
 	tilemap.set_cell(Vector2i(2, 3))
@@ -100,5 +109,15 @@ func to_map_cords(pos):
 	return tilemap.map_to_local(pos)
 
 func break_tile(pos: Vector2i):
+	var source_id = tilemap.get_cell_source_id(pos)
+	if source_id == TileType.GOLD:
+		var gold_item = preload("res://inventory/items/gold_ore.tres")
+		WorldManager.player.collect(gold_item)
+	elif source_id == TileType.IRON:
+		var iron_item = preload("res://inventory/items/iron_ore.tres")
+		WorldManager.player.collect(iron_item)
+	elif source_id == TileType.COAL:
+		var coal_item = preload("res://inventory/items/coal_ore.tres")
+		WorldManager.player.collect(coal_item)
 	tilemap.erase_cell(pos)
 #endregion
