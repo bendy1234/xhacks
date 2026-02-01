@@ -38,7 +38,7 @@ func enter_town(player: Player):
 		remove_child(current_lvl)
 
 	player.area = Area.TOWN
-	current_lvl = mine.instantiate();
+	current_lvl = town.instantiate();
 	add_child(current_lvl)
 	# TODO: start pos
 

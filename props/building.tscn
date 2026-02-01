@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://b5i2u4uanmf1e"]
 
+[ext_resource type="Script" uid="uid://csq2ajx2jdmg1" path="res://code/building.gd" id="1_p1q5t"]
 [ext_resource type="Texture2D" uid="uid://nn1v43yqe5ov" path="res://assets/temp building.png" id="1_ssece"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1q5t"]
 
 [node name="Building" type="Node2D" unique_id=195410950]
+script = ExtResource("1_p1q5t")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1709726025]
 texture = ExtResource("1_ssece")
@@ -14,3 +16,5 @@ position = Vector2(1, 13)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=570903144]
 shape = SubResource("RectangleShape2D_p1q5t")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

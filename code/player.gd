@@ -28,5 +28,6 @@ func _physics_process(delta: float) -> void:
 	if area == WorldManager.Area.MINE:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) || Input.is_action_pressed("spacebar"):
 			pass
-		
 	move_and_slide()
+
+	
