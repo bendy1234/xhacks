@@ -1,17 +1,27 @@
 extends Node2D
 
+@export
+var building_type: BuildingType = BuildingType.SHOP
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("enter_door"):
+		for thing in $door.get_overlapping_bodies():
+			if thing is Player:
+				on_enter()
 
+func on_enter():
+	if building_type == BuildingType.MINE_ENTRANCE:
+		WorldManager.enter_mine(1)
+	elif building_type == BuildingType.SHOP:
+		pass
+	elif building_type == BuildingType.TOWNHALL:
+		pass
+	elif building_type == BuildingType.INN:
+		pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.s
-func _process(delta: float) -> void:
-	pass
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		print("player touch door")
-	pass # Replace with function body.
+enum BuildingType {
+	TOWNHALL,
+	SHOP,
+	INN,
+	MINE_ENTRANCE,
+}

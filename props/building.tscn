@@ -11,10 +11,10 @@ script = ExtResource("1_p1q5t")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1709726025]
 texture = ExtResource("1_ssece")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=521537339]
+[node name="door" type="Area2D" parent="." unique_id=521537339]
 position = Vector2(1, 13)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=570903144]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door" unique_id=570903144]
 shape = SubResource("RectangleShape2D_p1q5t")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="door" to="." method="_on_area_2d_body_entered"]
