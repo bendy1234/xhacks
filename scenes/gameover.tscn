@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dx7luqhrbr7em"]
 
+[ext_resource type="FontFile" uid="uid://bcumtq526bxjw" path="res://assets/pixel_font.ttf" id="1_ncp31"]
+
 [node name="Gameover" type="Control" unique_id=1838928040]
 layout_mode = 3
 anchors_preset = 15
@@ -24,6 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_ncp31")
 text = "Game Over
 
 You could not play rent
