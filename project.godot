@@ -21,6 +21,8 @@ WorldManager="*uid://dwcfm7i5ucnsn"
 
 [display]
 
+window/size/viewport_width=576
+window/size/viewport_height=324
 window/stretch/mode="viewport"
 
 [input]
