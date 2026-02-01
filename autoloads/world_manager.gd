@@ -6,11 +6,9 @@ const map := preload("res://scenes/map.tscn")
 const town := preload("res://scenes/town.tscn")
 var current_lvl: Node
 
-#signal enter_mine(player, id)
-#signal enter_town(player, id)
-
-# dict of tilemap data, id -> idx
+# dict of tilemap data, id
 var mine_data = {}
+var player: Player
 
 
 enum Area {
@@ -19,15 +17,15 @@ enum Area {
 	MAP,
 }
 
-#func _ready() -> void: 
-	#enter_mine.connect(enter_mine_)
-	#enter_town.connect(enter_town_)
+func _init():
+	player = Player.new()
+	add_child(player)
 
 func save_mine_data(lvl: Node, id: int):
 	# this just assumes that lvl is the mine sceen
 	mine_data[id] = lvl.get_data()
 
-func enter_mine(player: Player, id: int):
+func enter_mine(id: int):
 	if current_lvl != null:
 		if player.area == Area.MINE:
 			save_mine_data(current_lvl, player.area_num)
@@ -43,7 +41,7 @@ func enter_mine(player: Player, id: int):
 		current_lvl.set_default()
 		
 	
-func enter_town(player: Player):
+func enter_town():
 	if player.area == Area.MINE:
 		save_mine_data(current_lvl, player.area_num)
 	if current_lvl != null:
@@ -55,7 +53,7 @@ func enter_town(player: Player):
 	# TODO: start pos
 
 
-func enter_map(player: Player):
+func enter_map():
 	if player.area == Area.MINE:
 		save_mine_data(current_lvl, player.area_num)
 		

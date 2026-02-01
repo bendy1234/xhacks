@@ -5,20 +5,18 @@ var tilemap: TileMapLayer = $TileMapLayer
 var id: int = 0
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("spacebar"):
-		var up: Area2D = $up
-		for thing in up.get_overlapping_bodies():
-			if thing is Player:
-				if thing.area_num == 1:
-					WorldManager.enter_town(thing)
-					return
-				WorldManager.enter_mine(thing, 1)
-				# FIXME: put num in enter_mine
-				
-		var down: Area2D = $down
-		for thing in down.get_overlapping_bodies():
-			if thing is Player:
-				WorldManager.enter_mine(thing, 1)
+	if event.is_action_pressed("enter_door"):
+		# check if at entrance/exit
+		var player = WorldManager.player
+		var pos = to_tile_cords(Vector2i(0,0))
+		var c = tilemap.get_cell_source_id(pos)
+		if c == 1:
+			WorldManager.enter_mine(player.area_num +1)
+		elif c == 2:
+			if player.area_num == 1:
+				WorldManager.enter_town()
+			WorldManager.enter_mine(player.area_num -1)
+		
 
 func get_data() -> PackedByteArray:
 	return tilemap.tile_map_data

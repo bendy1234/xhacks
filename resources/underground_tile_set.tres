@@ -1,6 +1,8 @@
 [gd_resource type="TileSet" format=3 uid="uid://ihhqe44qj28d"]
 
 [ext_resource type="Texture2D" uid="uid://bxasp470d7seb" path="res://assets/stone.png" id="1_nw6k3"]
+[ext_resource type="Texture2D" uid="uid://buf36vuvmo3xg" path="res://assets/mine_upwards.png" id="2_coti5"]
+[ext_resource type="Texture2D" uid="uid://bw8ji351lvpjw" path="res://assets/mine_downwards.png" id="2_kh4aj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_coti5"]
 texture = ExtResource("1_nw6k3")
@@ -9,9 +11,25 @@ texture = ExtResource("1_nw6k3")
 0:0/0/terrain = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kh4aj"]
+texture = ExtResource("2_kh4aj")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lsqpa"]
+texture = ExtResource("2_coti5")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
 [resource]
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(1, 0, 0, 1)
 sources/0 = SubResource("TileSetAtlasSource_coti5")
+sources/2 = SubResource("TileSetAtlasSource_lsqpa")
+sources/1 = SubResource("TileSetAtlasSource_kh4aj")
