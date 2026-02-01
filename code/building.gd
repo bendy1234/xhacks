@@ -1,6 +1,7 @@
 extends Node2D
 
-var building_type = SHOP
+@export
+var building_type: BuildingType = BuildingType.SHOP
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("enter_door"):
@@ -9,9 +10,16 @@ func _input(event: InputEvent) -> void:
 				on_enter()
 
 func on_enter():
-	print("door entered")
+	if building_type == BuildingType.MINE_ENTRANCE:
+		WorldManager.enter_mine(1)
+	elif building_type == BuildingType.SHOP:
+		pass
+	elif building_type == BuildingType.TOWNHALL:
+		pass
+	elif building_type == BuildingType.INN:
+		pass
 
-enum {
+enum BuildingType {
 	TOWNHALL,
 	SHOP,
 	INN,

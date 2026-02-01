@@ -17,10 +17,6 @@ enum Area {
 	MAP,
 }
 
-func _init():
-	player = Player.new()
-	add_child(player)
-
 func save_mine_data(lvl: Node, id: int):
 	# this just assumes that lvl is the mine sceen
 	mine_data[id] = lvl.get_data()
