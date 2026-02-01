@@ -50,4 +50,3 @@ func enter_map(player: Player):
 	player.area = Area.MAP
 	current_lvl = map.instantiate();
 	add_child(current_lvl)
-	# TODO: start pos
