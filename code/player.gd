@@ -14,6 +14,7 @@ var area_num = 0 # for mine depth & town number
 var facing = Facing.RIGHT
 #endregion
 
+@export var inv: Inv
 func _ready() -> void:
 	pass
 	

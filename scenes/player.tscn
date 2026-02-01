@@ -2,12 +2,15 @@
 
 [ext_resource type="Script" uid="uid://yj7uiaq1drco" path="res://code/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://1wgqkoxuswil" path="res://assets/player_right.png" id="2_g2els"]
+[ext_resource type="Resource" uid="uid://b1c3cl484thun" path="res://inventory/items/playerinv.tres" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://cdyabjlebh7op" path="res://inventory/inv_ui.tscn" id="4_dqkch"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3vyb7"]
 radius = 8.0
 
 [node name="Player" type="CharacterBody2D" unique_id=563819967 groups=["player"]]
 script = ExtResource("1_3vyb7")
+inv = ExtResource("2_qhqgy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1502496771]
 shape = SubResource("CircleShape2D_3vyb7")
@@ -15,3 +18,10 @@ shape = SubResource("CircleShape2D_3vyb7")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1824981938]
 position = Vector2(0, -22)
 texture = ExtResource("2_g2els")
+
+[node name="Inv_UI" parent="." unique_id=45594383 instance=ExtResource("4_dqkch")]
+offset_left = -86.00001
+offset_top = -185.0
+offset_right = -44.000008
+offset_bottom = -143.0
+scale = Vector2(4.2400875, 2.9556758)
