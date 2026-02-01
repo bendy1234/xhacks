@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dgwisgjri53tj"]
+
+[node name="Control" type="Control" unique_id=1018307670]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1986570349]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="time" type="Label" parent="HBoxContainer" unique_id=564594659]
+layout_mode = 2
+text = "Coint count
+Time/day
+Inv capacity / Weight"
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/time" unique_id=227035524]
+
+[node name="Label2" type="Label" parent="HBoxContainer" unique_id=216351433]
+layout_mode = 2
+
+[node name="coint count" type="Label" parent="HBoxContainer" unique_id=1399455636]
+layout_mode = 2

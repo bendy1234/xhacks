@@ -79,6 +79,18 @@ func find_tile(tile: int) -> Vector2i:
 	#print("Did not find tile with id ", tile)
 	#return Vector2i(-100, -100)
 
+func get_break_time(player: Player, pos: Vector2i) -> float:
+	# yea, this is very prone to breaking & is very hard to adjust
+	var pick_power = 0.8 # player.pickaxe + 1
+	var toughness = tilemap.get_cell_source_id(pos) == 1
+	if toughness >= 6: # unbreakable stuff
+		return INF
+	elif toughness == 0: # stone
+		toughness == 2
+	
+	return toughness / pick_power
+
+
 
 #region not really needed funcs
 func to_tile_cords(pos):
