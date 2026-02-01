@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://d1gp2xexbq2gh"]
+
+[ext_resource type="Texture2D" uid="uid://b71tgbhoxda4o" path="res://assets/temp_inventory_tile_new.png" id="1_dfngl"]
+[ext_resource type="Script" uid="uid://byqxouwvuqi8t" path="res://inventory/inv_ui_slot.gd" id="1_fcwim"]
+
+[node name="inv_UI_slot" type="Panel" unique_id=1883324543]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(10, 10)
+offset_right = 10.0
+offset_bottom = 10.0
+script = ExtResource("1_fcwim")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=320215539]
+scale = Vector2(0.032, 0.031)
+texture = ExtResource("1_dfngl")
+centered = false
+
+[node name="item_display" type="Sprite2D" parent="." unique_id=1731368755]
